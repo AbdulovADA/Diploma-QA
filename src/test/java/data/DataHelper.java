@@ -57,6 +57,9 @@ public class DataHelper {
     public static String getDeclinedNumber(){
         return "4444 4444 4444 4442";
     }
+    public static String getZeroNumber(){
+        return "0000 0000 0000 0000";
+    }
     public static String getRandomNumber(){
         return fakerEng.numerify("#### #### #### ####");
     }
@@ -105,6 +108,10 @@ public class DataHelper {
     }
     public static String getOneSymbolYear() {
         return "1";
+    }
+
+    public static String getZeroYear() {
+        return "00";
     }
     public static String getEngHolder() {
         return fakerEng.name().name().toUpperCase();

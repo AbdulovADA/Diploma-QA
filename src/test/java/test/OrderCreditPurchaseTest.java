@@ -139,7 +139,7 @@ public class OrderCreditPurchaseTest {
     @Test
     @DisplayName("(8) Negative - CreditCard - CardField All Symbols - Zeroes")
     void shouldFailBuyByInvalidAllZeroesCreditCardField() {
-        orderPage.completePayFrom(DataHelper.getApprovedNumber(), DataHelper.getMonth(0), DataHelper.getYear(0), DataHelper.getEngHolder(), DataHelper.getCVC());
+        orderPage.completePayFrom(DataHelper.getZeroNumber(), DataHelper.getMonth(0), DataHelper.getYear(0), DataHelper.getEngHolder(), DataHelper.getCVC());
         orderPage.continueClick();
         Assertions.assertAll(
                 () -> orderPage.denialAssertion(),
@@ -378,7 +378,7 @@ public class OrderCreditPurchaseTest {
     @Test
     @DisplayName("(26) Negative - CreditCard - YearField - Zero")
     void shouldFailBuyByInvalidZeroYearFieldCreditCard() {
-        orderPage.completePayFrom(DataHelper.getApprovedNumber(), DataHelper.getMonth(0), DataHelper.getYear(0), DataHelper.getEngHolder(), DataHelper.getCVC());
+        orderPage.completePayFrom(DataHelper.getApprovedNumber(), DataHelper.getMonth(0), DataHelper.getZeroYear(), DataHelper.getEngHolder(), DataHelper.getCVC());
         orderPage.continueClick();
         Assertions.assertAll(
                 () -> orderPage.denialAssertion(),
