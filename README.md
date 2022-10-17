@@ -13,5 +13,5 @@
 
 ## Ссылки
 1) [План автоматизации](https://github.com/AbdulovADA/Diploma-QA/blob/master/docs/Plan.md)
-2) Отчет о тестировании
-3) Отчет о проведенной автоматизации
+2) [Отчет о тестировании](https://github.com/AbdulovADA/Diploma-QA/blob/master/docs/FinalReport.md)
+3) [Отчет о проведенной автоматизации](https://github.com/AbdulovADA/Diploma-QA/blob/master/docs/Summary.md)
