@@ -12,6 +12,6 @@
 6) Для получения отчета в Allure выполнить команду: "./gradlew allureServe"
 
 ## Ссылки
-1) План автоматизации 
+1) [План автоматизации](https://github.com/AbdulovADA/Diploma-QA/blob/master/docs/Plan.md)
 2) Отчет о тестировании
 3) Отчет о проведенной автоматизации
