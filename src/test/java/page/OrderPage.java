@@ -15,14 +15,14 @@ public class OrderPage {
 
     MainPage homePage = new MainPage();
 
-    private final SelenideElement continueButton = $x("//*[@id='root']/div/form/fieldset/div[4]/button");
+    private final SelenideElement continueButton = $(".form-field button");
     private final SelenideElement titleCard = $x("//*[@id='root']/div/h3");
 
 
     private final SelenideElement cardNumber = $("[placeholder='0000 0000 0000 0000']");
     private final SelenideElement cardMonth = $("[placeholder='08']");
     private final SelenideElement cardYear = $("[placeholder='22']");
-    private final SelenideElement cardHolder = $x("//*[@id='root']/div/form/fieldset/div[3]/span/span[1]/span/span/span[2]/input");
+    private final SelenideElement cardHolder = $x("//*[.='Владелец'] //input");
     private final SelenideElement cardCVC = $("[placeholder='999']");
 
 
@@ -33,11 +33,11 @@ public class OrderPage {
     private final SelenideElement notificationContentDenial = $(".notification_status_error");
 
 
-    private final SelenideElement numberFieldError = $x("//*[@id='root']/div/form/fieldset/div[1]/span/span/span[3]");
-    private final SelenideElement monthFieldError = $x("//*[@id='root']/div/form/fieldset/div[2]/span/span[1]/span/span/span[3]");
-    private final SelenideElement yearFieldError = $x("//*[@id='root']/div/form/fieldset/div[2]/span/span[2]/span/span/span[3]");
-    private final SelenideElement holderFieldError = $x("//*[@id='root']/div/form/fieldset/div[3]/span/span[1]/span/span/span[3]");
-    private final SelenideElement CVCFieldError = $x("//*[@id=\"root\"]/div/form/fieldset/div[3]/span/span[2]/span/span/span[3]");
+    private final SelenideElement numberFieldError = $x("//span[contains(text(),'Номер карты')]").parent().$(".input__sub");
+    private final SelenideElement monthFieldError = $x("//span[contains(text(),'Месяц')]").parent().$(".input__sub");
+    private final SelenideElement yearFieldError = $x("//span[contains(text(),'Год')]").parent().$(".input__sub");
+    private final SelenideElement holderFieldError = $x("//span[contains(text(),'Владелец')]").parent().$(".input__sub");
+    private final SelenideElement cvcFieldError = $x("//span[contains(text(),'CVC/CVV')]").parent().$(".input__sub");
 
 
     public void completePayFrom(String number, String month, String year, String holder, String cvc) {
@@ -120,7 +120,7 @@ public class OrderPage {
     }
 
     public void CVCFieldFormatError() {
-        CVCFieldError.shouldBe(Condition.text("Неверный формат"), Condition.visible);
+        cvcFieldError.shouldBe(Condition.text("Неверный формат"), Condition.visible);
     }
 
     public void payApprovedStatusAssertion() {

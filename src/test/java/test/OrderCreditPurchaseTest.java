@@ -8,14 +8,13 @@ import org.junit.jupiter.api.*;
 import page.MainPage;
 import page.OrderPage;
 
-import java.util.ArrayList;
-
 import static com.codeborne.selenide.Selenide.*;
 
 public class OrderCreditPurchaseTest {
 
-    MainPage mainPage = new MainPage();
-    OrderPage orderPage = new OrderPage();
+    private MainPage mainPage = new MainPage();
+    private OrderPage orderPage = new OrderPage();
+
 
 
     @BeforeEach
