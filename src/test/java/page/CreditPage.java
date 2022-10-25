@@ -5,16 +5,16 @@ import com.codeborne.selenide.SelenideElement;
 import data.DBHelper;
 import org.junit.jupiter.api.Assertions;
 
-
 import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 
-public class OrderPage {
+public class CreditPage {
 
     private final MainPage mainPage = new MainPage();
+
 
     private final SelenideElement continueButton = $(".form-field button");
     private final SelenideElement titleCard = $x("//*[@id='root']/div/h3");
@@ -41,15 +41,14 @@ public class OrderPage {
     private final SelenideElement cvcFieldError = $x("//span[contains(text(),'CVC/CVV')]").parent().$(".input__sub");
 
 
-    public void completePayFrom(String number, String month, String year, String holder, String cvc) {
-        mainPage.clickPayButton();
-        titleCard.shouldBe(Condition.text("Оплата по карте"));
+    public void completeCreditFrom(String number, String month, String year, String holder, String cvc) {
+        mainPage.clickCreditButton();
+        titleCard.shouldBe(Condition.text("Кредит по данным карты"));
         cardNumber.setValue(number);
         cardMonth.setValue(month);
         cardYear.setValue(year);
         cardHolder.setValue(holder);
         cardCVC.setValue(cvc);
-
     }
 
     public void continueClick() {
@@ -57,13 +56,13 @@ public class OrderPage {
     }
 
     public void acceptAssertion() {
-        notificationTitleAccept.shouldBe(Condition.text("Успешно"), Duration.ofSeconds(15)).shouldBe(Condition.visible);
-        notificationContentAccept.shouldBe(Condition.text("Операция одобрена Банком."), Duration.ofSeconds(15)).shouldBe(Condition.visible);
+        notificationTitleAccept.shouldBe(Condition.text("Успешно"), Duration.ofSeconds(10)).shouldBe(Condition.visible);
+        notificationContentAccept.shouldBe(Condition.text("Операция одобрена Банком."), Duration.ofSeconds(10)).shouldBe(Condition.visible);
     }
 
     public void denialAssertion() {
-        notificationTitleDenial.shouldBe(Condition.text("Ошибка"), Duration.ofSeconds(15)).shouldBe(Condition.visible);
-        notificationContentDenial.shouldBe(Condition.text("Ошибка! Банк отказал в проведении операции."), Duration.ofSeconds(15)).shouldBe(Condition.visible);
+        notificationTitleDenial.shouldBe(Condition.text("Ошибка"), Duration.ofSeconds(10)).shouldBe(Condition.visible);
+        notificationContentDenial.shouldBe(Condition.text("Ошибка! Банк отказал в проведении операции."), Duration.ofSeconds(10)).shouldBe(Condition.visible);
     }
 
     public void numberFieldFormatError() {
@@ -102,28 +101,27 @@ public class OrderPage {
         cvcFieldError.shouldBe(Condition.text("Неверный формат"), Condition.visible);
     }
 
-    public void payApprovedStatusAssertion() {
-
+    public void creditApprovedStatusAssertion() {
         String statusExpected = "APPROVED";
-        String statusActual = DBHelper.getPaymentStatusDB();
+        String statusActual = DBHelper.getCreditStatusDB();
         Assertions.assertEquals(statusExpected, statusActual);
     }
 
-    public void payDeclinedStatusAssertion() {
+    public void creditDeclinedStatusAssertion() {
         String statusExpected = "DECLINED";
-        String statusActual = DBHelper.getPaymentStatusDB();
+        String statusActual = DBHelper.getCreditStatusDB();
         Assertions.assertEquals(statusExpected, statusActual);
     }
 
-    public void payAcceptCountAssertion() {
+    public void creditAcceptCountAssertion() {
         long countExpected = 1;
-        long countActual = DBHelper.getPaymentCount();
+        long countActual = DBHelper.getCreditCount();
         Assertions.assertEquals(countExpected, countActual);
     }
 
-    public void payDenialCountAssertion() {
+    public void creditDenialCountAssertion() {
         long countExpected = 0;
-        long countActual = DBHelper.getPaymentCount();
+        long countActual = DBHelper.getCreditCount();
         Assertions.assertEquals(countExpected, countActual);
     }
 
@@ -139,3 +137,4 @@ public class OrderPage {
         Assertions.assertEquals(countExpected, countActual);
     }
 }
+

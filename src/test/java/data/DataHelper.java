@@ -1,12 +1,12 @@
 package data;
 
-import com.github.javafaker.Faker;
 
+import com.github.javafaker.Faker;
+import lombok.Value;
 import java.time.LocalDate;
+
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
-
-import lombok.Value;
 
 
 public class DataHelper {
@@ -18,36 +18,6 @@ public class DataHelper {
         String year;
         String holder;
         String cvc;
-    }
-
-    public static Card getValidApprovedCard() {
-        return new Card(getApprovedNumber(), getMonth(0), getYear(0),
-                getEngHolder(), getCVC());
-    }
-
-    public static Card getValidDeclinedCard() {
-        return new Card(getDeclinedNumber(), getMonth(0), getYear(0),
-                getEngHolder(), getCVC());
-    }
-
-    public static Card getEmptyCard() {
-        return new Card(getEmptyNumber(), getEmptyMonth(), getEmptyYear(),
-                getEmptyHolder(), getEmptyCVC());
-    }
-
-    public static Card getValidApprovedCardAndRandomInvalidOtherField() {
-        return new Card(getApprovedNumber(), getThirteenMonth(), getYear(10),
-                getCyrillicHolder(), getZeroSymbolsCVC());
-    }
-
-    public static Card getValidApprovedCardAndEmptyOtherField() {
-        return new Card(getApprovedNumber(), getEmptyMonth(), getEmptyYear(),
-                getEmptyHolder(), getEmptyCVC());
-    }
-
-    public static Card getRandomCardNumberAndValidOtherField() {
-        return new Card(getRandomNumber(), getMonth(0), getYear(0),
-                getEngHolder(), getCVC());
     }
 
     private static final Faker fakerEng = new Faker(Locale.ENGLISH);

@@ -7,7 +7,6 @@ import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import java.sql.DriverManager;
 
-import static io.restassured.RestAssured.given;
 
 
 public class DBHelper {
