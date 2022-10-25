@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class OrderPurchaseTest {
 
-    private final OrderPage orderPage = new OrderPage();
+    public OrderPage orderPage = new OrderPage();
 
     @BeforeEach
     void setup() {

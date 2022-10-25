@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class OrderCreditPurchaseTest {
 
-    private final CreditPage creditPage = new CreditPage();
+    public CreditPage creditPage = new CreditPage();
 
     @BeforeEach
     void setup() {
@@ -61,7 +61,6 @@ public class OrderCreditPurchaseTest {
                 creditPage::orderAcceptCountAssertion
         );
     }
-
 
     @Test
     @DisplayName("(3) Negative - CreditCard - Buying Tour CardField Invalid")
